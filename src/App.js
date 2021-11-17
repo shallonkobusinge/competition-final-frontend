@@ -46,7 +46,7 @@ function App() {
 
     <Router>
       <Switch>
-        <h2>Hello World</h2>
+        <h2 >Hello World</h2>
         {/* <PublicRoute exact path="/student-info">
           <StudentReportInfo />
         </PublicRoute> */}
