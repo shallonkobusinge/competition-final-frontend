@@ -5,7 +5,15 @@ import BASE_URL from '../utils/baseUrl'
 import 'react-toastify/dist/ReactToastify.css';
 const EmployeesTable = ({ data = [] }) => {
 
-
+    const EditEmployee = async (id) => {
+        await axios.delete(`${BASE_URL}/employees/${id}`, { headers: authHeader() })
+            .then((response) => {
+                toast.success("Employee Deleted Successfully!!")
+            })
+            .catch((error) => {
+                toast.error(error?.response?.data?.message)
+            })
+    }
 
     return (
 

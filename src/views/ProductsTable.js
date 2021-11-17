@@ -44,6 +44,7 @@ const ProductsTable = ({ data }) => {
                             <tr>
                                 <td>{product?.name}</td>
                                 <td>{product?.quantity}</td>
+                                <td>{product?.unit_price}</td>
                                 <td>{product?.expiration_date}</td>
                                 <td>{product?.exportation_date}</td>
                                 <td className="cursor-pointer" onClick={() => approveProduct(product?._id)}>Approve</td>
