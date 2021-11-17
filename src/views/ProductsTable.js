@@ -33,6 +33,7 @@ const ProductsTable = ({ data }) => {
                         <th>Unit Price</th>
                         <th>Expiration date</th>
                         <th>Exportation date</th>
+                        <th>Company Name</th>
                         <th>Approve</th>
                         <th >Delete</th>
                     </tr>
@@ -45,8 +46,9 @@ const ProductsTable = ({ data }) => {
                                 <td>{product?.name}</td>
                                 <td>{product?.quantity}</td>
                                 <td>{product?.unit_price}</td>
-                                <td>{product?.expiration_date}</td>
-                                <td>{product?.exportation_date}</td>
+                                <td>{new Date(product?.expiration_date).toLocaleString()}</td>
+                                <td>{new Date(product?.exportation_date).toLocaleString()}</td>
+                                <td>{product?.company}</td>
                                 <td className="cursor-pointer" onClick={() => approveProduct(product?._id)}>Approve</td>
                                 <td className="cursor-pointer" onClick={() => deleteProduct(product?._id)}>Delete</td>
 

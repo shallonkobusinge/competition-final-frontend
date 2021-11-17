@@ -44,7 +44,7 @@ const RegisterProducts = ({ showFormView }) => {
 
 
             }).catch((error) => {
-                toast.error(error?.response?.data?.message === "VALIDATION ERROR" ? error?.response?.data?.error : error?.response?.data?.message)
+                toast.error(error?.response?.data?.error)
             })
 
 
