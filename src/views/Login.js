@@ -12,7 +12,7 @@ const Login = () => {
 
 
     const initialUser = {
-        username: "",
+        email: "",
         password: "",
 
     };
@@ -28,28 +28,28 @@ const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // axios.post(`${BASE_URL}/auth/login`, loginData)
-        //     .then(function (response) {
+        axios.post(`${BASE_URL}/auth/login`, loginData)
+            .then(function (response) {
+                console.log(response)
+                if (response.data?.data?.token) {
+                    sessionStorage.setItem('token', response.data?.data?.token)
 
-        //         if (response.data?.data?.token) {
-        //             sessionStorage.setItem('token', response.data?.data?.token)
+                }
+                toast.success("Successfully logged in")
+                setTimeout(() => { history.push('/records') }, 3000)
 
-        //         }
-        //         toast.success("Successfully logged in")
-        //         setTimeout(() => { history.push('/') }, 3000)
-
-        //     }).catch((error) => {
-        //         toast.error(error?.response?.data?.message)
-        //     })
+            }).catch((error) => {
+                toast.error(error?.response?.data?.message)
+            })
 
 
     };
     return (
         <Navbar
-            showUser={false}
+            showIcon={false}
         >
             <div className="login-form-container">
-                <div className="text-center font-bold app-color uppercase text-xl header-reg px-10">
+                <div className="text-center font-bold app-color uppercase text-xl header-reg ">
                     login
                 </div>
 
@@ -59,11 +59,11 @@ const Login = () => {
                         <div className="grid grid-cols-6 grid-rows-2  gap-8">
                             <div className="col-span-6 gap-6 sm:col-span-6 sm:row-span-1 ">
                                 <Input
-                                    name="username"
+                                    name="email"
                                     inputHandler={inputHandler}
                                     type="text"
-                                    labelName="Username"
-                                    placeholder="Username"
+                                    labelName="Enter Email"
+                                    placeholder="Enter your email"
                                     className="login-input"
                                     required
                                 />
@@ -100,10 +100,7 @@ const Login = () => {
                 />
             </div>
 
-            <form action="/api/uploadFile" enctype="multipart/form-data" method="POST">
-                <input type="file" class="admin__input" id="myFile" name="myFile" />
-                <input class="admin__submit" type="submit" />
-            </form>
+
         </Navbar>
 
     )

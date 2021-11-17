@@ -7,6 +7,8 @@ import {
   Link,
   Redirect,
 } from "react-router-dom";
+import Login from './views/Login'
+import AdminFrontPage from './views/AdminFrontPage'
 
 function PrivateRoute({ children, ...rest }) {
   return (
@@ -16,7 +18,7 @@ function PrivateRoute({ children, ...rest }) {
         return sessionStorage.getItem("token") ? (
           children
         ) : (
-          <Redirect to="/login" />
+          <Redirect to="/" />
         );
       }}
     />
@@ -34,7 +36,7 @@ function PublicRoute({ children, ...rest }) {
         return !sessionStorage.getItem("token") ? (
           children
         ) : (
-          <Redirect to="/" />
+          <Redirect to="/records" />
         );
       }}
     />
@@ -46,10 +48,13 @@ function App() {
 
     <Router>
       <Switch>
-        <h2 >Hello World</h2>
-        {/* <PublicRoute exact path="/student-info">
-          <StudentReportInfo />
-        </PublicRoute> */}
+
+        <PublicRoute exact path="/">
+          <Login />
+        </PublicRoute>
+        <PrivateRoute exact path='/records'>
+          <AdminFrontPage />
+        </PrivateRoute>
       </Switch>
     </Router>
   );

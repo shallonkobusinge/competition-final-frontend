@@ -11,30 +11,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.tabs-view-mode {
-  padding: 4rem 8rem
-    0.4rem 7rem;
-  border-bottom: 2px
-    solid #c0c3c3;
-  width: 74rem;
-  margin-left: 9rem;
-}
-.register-buttons {
-  width: 10rem;
-  background: #202323;
-  color: white;
-  height: 2rem;
-  border-radius: 3px;
-}
-
 p {
   font-size: 1.1rem;
 }
 .app-background {
-  background-color: #202323;
+  background-color: #2f73e3;
 }
 .app-color {
-  color: #202323;
+  color: #2f73e3;
 }
 .login-form-container {
   margin: 10rem;
@@ -57,27 +41,16 @@ p {
   margin: 0.8rem;
 }
 
-.tabs-container {
-  padding-top: 3rem
-    3rem 0 3rem;
-  border-bottom: 1px
-    solid #c0c2c2;
-  padding: 3rem 3rem
-    0 3rem;
-  width: 87rem;
-  margin-left: 5rem;
-}
-.register-button {
-  width: 12rem;
-  height: 2.6rem;
-  background: #232020;
+.add-button {
+  width: 10rem;
+  background: #2f73e3;
   color: white;
-  border-radius: 6px;
-  margin-bottom: 2px;
+  height: 2rem;
+  border-radius: 4px;
 }
 .active {
   border-bottom: 2px
-    solid #232020;
+    solid #2f73e3;
 }
 
 .table-header
